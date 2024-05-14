@@ -1,0 +1,26 @@
+name: test
+
+on:
+    push:
+        branches:
+        - "main"
+
+jobs:
+    test_ads:
+        runs-on: ubuntu-18.04
+        steps:
+            - name: show message
+              run: echo "hello world 2024-05-14" 
+              
+            - name: show secret 
+              run: echo ${{secrets.ENVIORMENT}}   
+
+            - name: show variable in file  
+              run: echo ${{env.USER_REPORITORY}} 
+
+            - name: show variable GITHUB
+              run: echo ${{vars.VERSION}} 
+
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '20'
